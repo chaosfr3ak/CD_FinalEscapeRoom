@@ -114,6 +114,50 @@ public sealed class GameEngine
 
         StartTimer();
     }
+    
+    public void StartMenu()
+    {
+        bool exitMenu = false;
+        while (!exitMenu)
+        {
+            Console.Clear();
+            Console.WriteLine("1. Start");
+            Console.WriteLine("2. Load");
+            Console.WriteLine("3. Exit");
+            Console.Write("Enter your choice: ");
+
+            string input = Console.ReadLine();
+            switch (input)
+            {
+                case "1":
+                    // Start the game
+                    Setup();
+                    exitMenu = true;
+                    break;
+                case "2":
+                    // Load the game
+                    Console.Write("Enter save slot to load: ");
+                    string slotInput = Console.ReadLine();
+                    if (int.TryParse(slotInput, out int slot))
+                    {
+                        LoadGame(slot);
+                        exitMenu = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a number.");
+                    }
+                    break;
+                case "3":
+                    // Exit the game
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Please enter 1, 2, or 3.");
+                    break;
+            }
+        }
+    }
 
     private void StartTimer()
     {
