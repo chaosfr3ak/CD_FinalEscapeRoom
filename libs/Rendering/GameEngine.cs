@@ -117,15 +117,35 @@ public sealed class GameEngine
     
     public void StartMenu()
     {
+        int basePadding = 10;
         bool exitMenu = false;
         while (!exitMenu)
         {
             Console.Clear();
-            Console.WriteLine("1. Start");
-            Console.WriteLine("2. Load");
-            Console.WriteLine("3. Exit");
-            Console.Write("Enter your choice: ");
+            Console.WriteLine();
+            
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    DrawObject(map.Get(i, j));
+                }
+                WriteSaveSlots(i, 2, true);
+                Console.WriteLine();
+            }
+            
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            
+            Console.WriteLine();
+            Console.WriteLine("    1. Start");
+            Console.WriteLine("    2. Load");
+            Console.WriteLine("    3. Exit");
+            
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("    Enter your choice: ");
 
+            
+            
             string input = Console.ReadLine();
             switch (input)
             {
@@ -136,7 +156,7 @@ public sealed class GameEngine
                     break;
                 case "2":
                     // Load the game
-                    Console.Write("Enter save slot to load: ");
+                    Console.Write("    Enter save slot to load: ");
                     string slotInput = Console.ReadLine();
                     if (int.TryParse(slotInput, out int slot))
                     {
@@ -145,7 +165,7 @@ public sealed class GameEngine
                     }
                     else
                     {
-                        Console.WriteLine("Invalid input. Please enter a number.");
+                        Console.WriteLine("    Invalid input. Please enter a number.");
                     }
                     break;
                 case "3":
@@ -153,7 +173,7 @@ public sealed class GameEngine
                     Environment.Exit(0);
                     break;
                 default:
-                    Console.WriteLine("Invalid choice. Please enter 1, 2, or 3.");
+                    Console.WriteLine("    Invalid choice. Please enter 1, 2, or 3.");
                     break;
             }
         }
@@ -213,7 +233,7 @@ public sealed class GameEngine
         DrawHintWindow("HINT: Maybe it helps if you interact with a box...?");
     }
 
-    private void WriteSaveSlots(int currentLine, int middleLine)
+    private void WriteSaveSlots(int currentLine, int middleLine, bool isMenu = false)
     {
         int basePadding = 10;
         
@@ -228,7 +248,7 @@ public sealed class GameEngine
         };
         Console.ForegroundColor = ConsoleColor.Yellow;
         string padding = new string(' ', basePadding);
-        output = padding + output;
+        output = isMenu ? output : padding + output;
         Console.Write(output);
     }
     
@@ -252,8 +272,8 @@ public sealed class GameEngine
             var x when x == middleLine - 1 => "[WASD]/[↑←↓→] to move".PadLeft(basePadding),
             var x when x == middleLine => "[R] to undo".PadLeft(basePadding - currentLevelName.Length - 6),
             var x when x == middleLine + 1 => "[NUMBER] to save to slot".PadLeft(basePadding - currentSubtitle.Length - 6),
-            var x when x == middleLine + 2 => "[SHIFT + NUMBER] to load from slot".PadLeft(basePadding - 15),
-            var x when x == middleLine + 3 => "[E] to interact with Object".PadLeft(basePadding),
+            //var x when x == middleLine + 2 => "[SHIFT + NUMBER] to load from slot".PadLeft(basePadding - 15),
+            var x when x == middleLine + 2 => "[E] to interact with Object".PadLeft(basePadding - 15),
             _ => ""
         };
         Console.ForegroundColor = ConsoleColor.DarkCyan;
