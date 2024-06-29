@@ -20,19 +20,22 @@
       "Type": 2,
       "Color": 6,
       "PosX": 2,
-      "PosY": 2
+      "PosY": 2,
+      "DialogFilePath": "../assets/dialogs/level0_box1.json"
     },
     {
       "Type": 2,
       "Color": 6,
       "PosX": 5,
-      "PosY": 5
+      "PosY": 5,
+      "DialogFilePath": "../assets/dialogs/level0_box2.json"
     },
     {
       "Type": 2,
       "Color": 6,
       "PosX": 3,
-      "PosY": 6
+      "PosY": 6,
+      "DialogFilePath": "../assets/dialogs/level0_box3.json"
     },
     {
       "Type": 1,

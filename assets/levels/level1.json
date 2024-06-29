@@ -478,13 +478,15 @@
       "Type": 2,
       "Color": 6,
       "PosX": 4,
-      "PosY": 5
+      "PosY": 5,
+      "DialogFilePath": "../assets/dialogs/level1_box1.json"
     },
     {
       "Type": 2,
       "Color": 6,
       "PosX": 10,
-      "PosY": 9
+      "PosY": 9,
+      "DialogFilePath": "../assets/dialogs/level1_box2.json"
     }
   ]
 }

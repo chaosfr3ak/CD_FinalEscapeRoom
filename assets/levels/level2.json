@@ -13,22 +13,8 @@
       "Type": 2,
       "Color": 6,
       "PosX": 5,
-      "PosY": 3
-    },
-    {
-      "Type": 3,
-      "PosX": 27,
-      "PosY": 13
-    },
-    {
-      "Type": 3,
-      "PosX": 25,
-      "PosY": 10
-    },
-    {
-      "Type": 3,
-      "PosX": 20,
-      "PosY": 12
+      "PosY": 3,
+      "DialogFilePath": "../assets/dialogs/level2_box1.json"
     },
     {
       "Type": 1,
@@ -832,13 +818,15 @@
       "Type": 2,
       "Color": 6,
       "PosX": 22,
-      "PosY": 2
+      "PosY": 2,
+      "DialogFilePath": "../assets/dialogs/level2_box2.json"
     },
     {
       "Type": 2,
       "Color": 6,
       "PosX": 8,
-      "PosY": 12
+      "PosY": 12,
+      "DialogFilePath": "../assets/dialogs/level2_box3.json"
     }
   ]
 }

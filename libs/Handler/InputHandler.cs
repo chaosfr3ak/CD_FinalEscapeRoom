@@ -107,11 +107,11 @@ public sealed class InputHandler{
                     break;
                 case ConsoleKey.E:
                     GameObject objectInFront = GameEngine.Instance.GetObjectInFrontOfPlayer();
-                    if (objectInFront is Box)
+                    if (objectInFront is Box box)
                     {
                         // objectInFront.Remove();
-                        objectInFront.Interact();
-                        GameEngine.Instance.RemoveFromBoxesInCurrentLevel();
+                        engine.HandleDialogInteraction(box);
+                        //GameEngine.Instance.RemoveFromBoxesInCurrentLevel();
                         //GameEngine.Instance.CheckWinCondition();
                     }
                     break;

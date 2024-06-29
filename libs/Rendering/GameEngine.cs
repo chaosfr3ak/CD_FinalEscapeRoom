@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Reflection.Metadata.Ecma335;
 using System.Text.Json.Nodes;
+using System.Linq;
 
 namespace libs;
 
@@ -106,7 +107,7 @@ public sealed class GameEngine
             {
                 amountOfBoxesInCurrentLevel++;
             }
-            
+        
             AddGameObject(newGameObject);
         }
 
@@ -114,6 +115,7 @@ public sealed class GameEngine
 
         StartTimer();
     }
+
     
     public void StartMenu()
     {
@@ -432,6 +434,15 @@ public sealed class GameEngine
             }
 
             Setup();
+        }
+    }
+    
+    public void HandleDialogInteraction(Box box)
+    {
+        if (box.Interact())
+        {
+            gameObjects = gameObjects.Where(go => go != box).ToList();
+            RemoveFromBoxesInCurrentLevel();
         }
     }
     

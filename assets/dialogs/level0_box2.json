@@ -1,20 +1,20 @@
 [
   {
     "dialogID": "1",
-    "Text": "What is the boiling point of water?",
+    "Text": "What is the capital of France?",
     "Responses": [
       {
-        "ResponseText": "100°C",
+        "ResponseText": "Paris",
         "NextNode": {"dialogID": "2"},
         "IsCorrect": true
       },
       {
-        "ResponseText": "90°C",
+        "ResponseText": "Berlin",
         "NextNode": {"dialogID": "3"},
         "IsCorrect": false
       },
       {
-        "ResponseText": "110°C",
+        "ResponseText": "Madrid",
         "NextNode": {"dialogID": "3"},
         "IsCorrect": false
       }
