@@ -125,4 +125,8 @@ public class GameObject : IGameObject, IMovement
     {
         return this.MemberwiseClone();
     }
+    
+    public virtual void Interact()
+    {
+    }
 }

@@ -7,4 +7,8 @@ public class Box : GameObject {
         CharRepresentation = '■';
         Color = ConsoleColor.DarkGreen;
     }
+    
+    public override void Interact() {
+        
+    }
 }
