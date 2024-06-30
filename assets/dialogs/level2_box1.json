@@ -1,22 +1,28 @@
 [
   {
     "dialogID": "1",
-    "Text": "What is the boiling point of water?",
+    "Text": "What is the capital of Japan?",
     "Responses": [
       {
-        "ResponseText": "100°C",
-        "NextNode": {"dialogID": "2"},
+        "ResponseText": "Kyoto",
+        "NextNode": {
+          "dialogID": "3"
+        },
+        "IsCorrect": false
+      },
+      {
+        "ResponseText": "Osaka",
+        "NextNode": {
+          "dialogID": "3"
+        },
+        "IsCorrect": false
+      },
+      {
+        "ResponseText": "Tokyo",
+        "NextNode": {
+          "dialogID": "2"
+        },
         "IsCorrect": true
-      },
-      {
-        "ResponseText": "90°C",
-        "NextNode": {"dialogID": "3"},
-        "IsCorrect": false
-      },
-      {
-        "ResponseText": "110°C",
-        "NextNode": {"dialogID": "3"},
-        "IsCorrect": false
       }
     ]
   },
@@ -28,6 +34,13 @@
   {
     "dialogID": "3",
     "Text": "Wrong answer. Try again.",
-    "Responses": [{"ResponseText": "Return to start", "NextNode": {"dialogID": "1"}}]
+    "Responses": [
+      {
+        "ResponseText": "Type 1 to try again",
+        "NextNode": {
+          "dialogID": "1"
+        }
+      }
+    ]
   }
 ]

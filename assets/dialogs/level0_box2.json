@@ -28,6 +28,6 @@
   {
     "dialogID": "3",
     "Text": "Wrong answer. Try again.",
-    "Responses": [{"ResponseText": "Return to start", "NextNode": {"dialogID": "1"}}]
+    "Responses": [{"ResponseText": "Type 1 to try again", "NextNode": {"dialogID": "1"}}]
   }
 ]

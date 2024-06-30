@@ -412,28 +412,35 @@ public sealed class GameEngine
     
     public void IncreaseLevel()
     {
-        if (IsLevelCompleted() && !IsGameOver())
+        if (IsLevelCompleted())
         {
-            currentLevel++;
-            currentLevelName = "Level " + currentLevel;
-            states.Clear();
-            gameObjects.Clear();
-            amountOfBoxesInCurrentLevel = 0;
-
-            //Set time based on level
-            switch(currentLevel) {
-                case 1:
-                timeRemainingInSeconds = 60;
-                break;
-                case 2:
-                timeRemainingInSeconds = 120;
-                break;
-                case 3:
-                timeRemainingInSeconds = 180;
-                break;
+            if (currentLevel >= 2) 
+            {
+                Console.WriteLine("Congratulations! You have completed all levels.");
+                Environment.Exit(0);
             }
+            else
+            {
+                currentLevel++;
+                currentLevelName = "Level " + currentLevel;
+                states.Clear();
+                gameObjects.Clear();
+                amountOfBoxesInCurrentLevel = 0;
 
-            Setup();
+                switch(currentLevel) {
+                    case 1:
+                        timeRemainingInSeconds = 40;
+                        break;
+                    case 2:
+                        timeRemainingInSeconds = 60;
+                        break;
+                    case 3:
+                        timeRemainingInSeconds = 50;
+                        break;
+                }
+
+                Setup();
+            }
         }
     }
     

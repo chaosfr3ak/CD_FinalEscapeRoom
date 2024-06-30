@@ -1,21 +1,27 @@
 [
   {
     "dialogID": "1",
-    "Text": "What is the boiling point of water?",
+    "Text": "What is 5x5?",
     "Responses": [
       {
-        "ResponseText": "100°C",
-        "NextNode": {"dialogID": "2"},
-        "IsCorrect": true
-      },
-      {
-        "ResponseText": "90°C",
-        "NextNode": {"dialogID": "3"},
+        "ResponseText": "20",
+        "NextNode": {
+          "dialogID": "3"
+        },
         "IsCorrect": false
       },
       {
-        "ResponseText": "110°C",
-        "NextNode": {"dialogID": "3"},
+        "ResponseText": "25",
+        "NextNode": {
+          "dialogID": "2"
+        },
+        "IsCorrect": true
+      },
+      {
+        "ResponseText": "30",
+        "NextNode": {
+          "dialogID": "3"
+        },
         "IsCorrect": false
       }
     ]
@@ -28,6 +34,13 @@
   {
     "dialogID": "3",
     "Text": "Wrong answer. Try again.",
-    "Responses": [{"ResponseText": "Return to start", "NextNode": {"dialogID": "1"}}]
+    "Responses": [
+      {
+        "ResponseText": "Type 1 to try again",
+        "NextNode": {
+          "dialogID": "1"
+        }
+      }
+    ]
   }
 ]

@@ -4,14 +4,14 @@
     "Text": "What is the boiling point of water?",
     "Responses": [
       {
-        "ResponseText": "100°C",
-        "NextNode": {"dialogID": "2"},
-        "IsCorrect": true
-      },
-      {
         "ResponseText": "90°C",
         "NextNode": {"dialogID": "3"},
         "IsCorrect": false
+      },
+      {
+        "ResponseText": "100°C",
+        "NextNode": {"dialogID": "2"},
+        "IsCorrect": true
       },
       {
         "ResponseText": "110°C",
@@ -28,6 +28,6 @@
   {
     "dialogID": "3",
     "Text": "Wrong answer. Try again.",
-    "Responses": [{"ResponseText": "Return to start", "NextNode": {"dialogID": "1"}}]
+    "Responses": [{"ResponseText": "Type 1 to try again", "NextNode": {"dialogID": "1"}}]
   }
 ]

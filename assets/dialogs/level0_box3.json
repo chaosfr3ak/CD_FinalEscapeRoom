@@ -4,11 +4,6 @@
     "Text": "What is 2x3?",
     "Responses": [
       {
-        "ResponseText": "6",
-        "NextNode": {"dialogID": "2"},
-        "IsCorrect": true
-      },
-      {
         "ResponseText": "3",
         "NextNode": {"dialogID": "3"},
         "IsCorrect": false
@@ -17,6 +12,11 @@
         "ResponseText": "5",
         "NextNode": {"dialogID": "3"},
         "IsCorrect": false
+      },
+      {
+        "ResponseText": "6",
+        "NextNode": {"dialogID": "2"},
+        "IsCorrect": true
       }
     ]
   },
@@ -28,6 +28,6 @@
   {
     "dialogID": "3",
     "Text": "Wrong answer. Try again.",
-    "Responses": [{"ResponseText": "Return to start", "NextNode": {"dialogID": "1"}}]
+    "Responses": [{"ResponseText": "Type 1 to try again", "NextNode": {"dialogID": "1"}}]
   }
 ]

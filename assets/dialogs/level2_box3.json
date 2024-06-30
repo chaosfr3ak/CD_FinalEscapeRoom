@@ -1,21 +1,27 @@
 [
   {
     "dialogID": "1",
-    "Text": "What is the capital of France?",
+    "Text": "Who developed the theory of relativity?",
     "Responses": [
       {
-        "ResponseText": "Paris",
-        "NextNode": {"dialogID": "2"},
+        "ResponseText": "Albert Einstein",
+        "NextNode": {
+          "dialogID": "2"
+        },
         "IsCorrect": true
       },
       {
-        "ResponseText": "Berlin",
-        "NextNode": {"dialogID": "3"},
+        "ResponseText": "Isaac Newton",
+        "NextNode": {
+          "dialogID": "3"
+        },
         "IsCorrect": false
       },
       {
-        "ResponseText": "Madrid",
-        "NextNode": {"dialogID": "3"},
+        "ResponseText": "Galileo Galilei",
+        "NextNode": {
+          "dialogID": "3"
+        },
         "IsCorrect": false
       }
     ]
@@ -28,6 +34,13 @@
   {
     "dialogID": "3",
     "Text": "Wrong answer. Try again.",
-    "Responses": [{"ResponseText": "Return to start", "NextNode": {"dialogID": "1"}}]
+    "Responses": [
+      {
+        "ResponseText": "Type 1 to try again",
+        "NextNode": {
+          "dialogID": "1"
+        }
+      }
+    ]
   }
 ]

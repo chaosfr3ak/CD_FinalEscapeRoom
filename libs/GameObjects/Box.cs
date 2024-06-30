@@ -9,11 +9,14 @@ public class Box : GameObject
     private List<DialogNode> dialogNodes;
     private DialogNode currentNode;
 
-    public Box(int posX, int posY, string dialogFilePath) : base()
+    public Box(int posX, int posY, string dialogFilePath) : base(posX, posY)
     {
+        if (string.IsNullOrEmpty(dialogFilePath))
+        {
+            throw new ArgumentException("Dialog file path cannot be null or empty.", nameof(dialogFilePath));
+        }
+
         Type = GameObjectType.Box;
-        PosX = posX;
-        PosY = posY;
         CharRepresentation = '■';
         Color = ConsoleColor.DarkGreen;
         string dialogData = System.IO.File.ReadAllText(dialogFilePath);
