@@ -8,9 +8,12 @@ public class Box : GameObject
 {
     private List<DialogNode> dialogNodes;
     private DialogNode currentNode;
+    public string DialogFilePath { get; set; } // Add this line
+
 
     public Box(int posX, int posY, string dialogFilePath) : base(posX, posY)
     {
+        DialogFilePath = dialogFilePath; // And this line
         if (string.IsNullOrEmpty(dialogFilePath))
         {
             throw new ArgumentException("Dialog file path cannot be null or empty.", nameof(dialogFilePath));

@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 public sealed class GameEngine
 {
     private static GameEngine? _instance;
-    private IGameObjectFactory gameObjectFactory;
+    private IGameObjectFactory gameObjectFactory = new GameObjectFactory();
     string currentLevelName = "Level 0 - Intro";
     string currentSubtitle = "";
     private int currentLevel = 0;
@@ -499,12 +499,6 @@ public sealed class GameEngine
         return currentLevel;
     }
     
-    public void SaveGame(int saveSlot)
-    {
-        Save save = new Save(GetCurrentState(), currentLevel, map.MapHeight, map.MapWidth, DateTime.Now);
-        FileHandler.SaveGame(save, saveSlot);
-    }
-    
     public State GetCurrentState()
     {
         return new State(Player.Instance.PosX, Player.Instance.PosY, gameObjects);
@@ -523,14 +517,15 @@ public sealed class GameEngine
             foreach (dynamic savedGameObject in save.MapState.gameObjects)
             {
                 GameObject gameObject = gameObjectFactory.CreateGameObject(savedGameObject);
-                if (gameObject is Box && gameObject.PosX != -1 && gameObject.PosY != -1)
+                if (gameObject is Box box)
                 {
+                    box.DialogFilePath = savedGameObject.DialogFilePath; 
                     amountOfBoxesInCurrentLevel++;
                 }
-            
+        
                 AddGameObject(gameObject);
             }
-            
+        
             Player.Instance.PosX = save.MapState.playerPosX;
             Player.Instance.PosY = save.MapState.playerPosY;
             AddGameObject(Player.Instance);
@@ -539,5 +534,12 @@ public sealed class GameEngine
             map.MapWidth = save.MapWidth;
             SaveState(GetCurrentState());
         }
+    }
+
+    public void SaveGame(int saveSlot)
+    {
+        List<GameObject> gameObjectsToSave = gameObjects.Select(go => go is Box box ? new Box(box.PosX, box.PosY, box.DialogFilePath) : go).ToList();
+        Save save = new Save(new State(Player.Instance.PosX, Player.Instance.PosY, gameObjectsToSave), currentLevel, map.MapHeight, map.MapWidth, DateTime.Now);
+        FileHandler.SaveGame(save, saveSlot);
     }
 }
